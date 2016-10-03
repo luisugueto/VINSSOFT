@@ -35,7 +35,9 @@
             <i class="fa fa-wordpress"></i>
         </div>
     </div>
-    
+    @if(Session::has('mensaje'))
+        {{Session::get('mensaje')}}
+    @endif
     <div class="col-md-2 blog-sidebar">
         <div class="col-md-12 menu">
             <ul>
@@ -148,10 +150,16 @@
                                         <td>Acción</td>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody align="center">
+                                @foreach($personal as $persona)
                                     <tr>
-                                        <td colspan="16">No se han encontrado resultados</td>
+                                        <td>{{$persona->nombres}}</td>
+                                        <td>{{$persona->cargo}}</td>
+                                        <td>{{$persona->correo}}</td>
+                                        <td>{{$persona->telefono}}</td>
+                                        <td>X</td>
                                     </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                             <nav>

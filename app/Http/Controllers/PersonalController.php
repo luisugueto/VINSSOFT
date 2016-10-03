@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+Use App\Personal;
+use Session;
 use App\Http\Requests;
 
 class PersonalController extends Controller
@@ -15,7 +16,8 @@ class PersonalController extends Controller
      */
     public function index()
     {
-        return view('personal');
+        $personal = Personal::all();
+        return view('personal', compact('personal'));
     }
 
     /**
@@ -36,7 +38,20 @@ class PersonalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $personal = new Personal();
+        $personal->nombres = $request['nombres'];
+        $personal->apellidos = $request['apellidos'];
+        $personal->cargo = $request['cargo'];
+        $personal->tipoced = $request['tipo_ced'];
+        $personal->cedula = $request['cedula'];
+        $personal->correo = $request['correo'];
+        $personal->telefono = $request['telefono'];
+        $personal->save();
+       
+        Session::flash('mensaje', 'Personal Creado Correctamente');
+
+        $personal = Personal::all();
+        return view('personal', compact('personal'));
     }
 
     /**
