@@ -11,7 +11,7 @@
 
                         <div class="col-md-12">
                             <div class="col-md-6">
-                                <button class="btn btn-primary" title="Registrar personal" onclick="window.location.href = '{{ URL::to('/nuevo') }}'";>
+                                <button class="btn btn-primary" title="Registrar personal" onclick="window.location.href = '{{ URL::to('/nuevo_personal') }}'";>
                                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                     Nuevo</button>
                             </div>

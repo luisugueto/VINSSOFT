@@ -43,7 +43,7 @@ class LoginController extends Controller
         if(Auth::check())
         {
             Session::flash('message-error', 'Usuario ya conectado.');
-            return Redirect::to('/');
+            return Redirect::to('/app');
         }
         if(Auth::attempt(['email' => $request['email'], 'password' => $request['password']]))
         {
@@ -53,8 +53,7 @@ class LoginController extends Controller
         return Redirect::to('/');
     }
 
-    public function logout()
-    {
+    public function logout(){
         Auth::logout();
         return Redirect::to('/');
     }

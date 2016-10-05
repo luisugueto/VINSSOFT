@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\User;
+use Session;
 
 class UsuariosController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +20,12 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::all();
+        return view('usuarios.usuario', compact('user'));
+    }
+
+    public function nuevo(){
+        return view('usuarios.nuevousuario');
     }
 
     /**
@@ -36,7 +46,18 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->name = $request['nombre'];
+        $user->email = $request['correo'];
+        $user->password = $request['contraseña'];
+        $user->roles_id = 1;
+        $user->save();
+
+        Session::flash('mensaje', 'Usuario Creado Correctamente');
+
+        $user = User::all();
+        return view('usuarios.usuario', compact('user'));
+
     }
 
     /**

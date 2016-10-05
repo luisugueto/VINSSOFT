@@ -9,6 +9,9 @@ use App\Http\Requests;
 
 class PersonalController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +20,7 @@ class PersonalController extends Controller
     public function index()
     {
         $personal = Personal::all();
-        return view('personal', compact('personal'));
+        return view('personal.personal', compact('personal'));
     }
 
     /**
@@ -51,7 +54,7 @@ class PersonalController extends Controller
         Session::flash('mensaje', 'Personal Creado Correctamente');
 
         $personal = Personal::all();
-        return view('personal', compact('personal'));
+        return view('personal.personal', compact('personal'));
     }
 
     /**
@@ -102,6 +105,6 @@ class PersonalController extends Controller
 
     public function nuevo()
     {
-        return view('nuevopersonal');
+        return view('personal.nuevopersonal');
     }
 }

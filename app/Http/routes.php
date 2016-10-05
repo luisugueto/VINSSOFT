@@ -1,5 +1,4 @@
 <?php
-use Auth;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -14,10 +13,7 @@ use Auth;
 Route::get('/', function () {
     return view('layouts.index');
 });
-Route::get('/logout', function(){
-	Auth::logout();
-    return Redirect::to('/');
-});
+Route::get('/logout', 'LoginController@logout');
 
 
 //URLS REST
@@ -32,11 +28,5 @@ Route::resource('usuarios', 'UsuariosController');
 Route::resource('sistema', 'SistemaController');
 Route::resource('login', 'LoginController');
 
-Route::get('/nuevo', 'PersonalController@nuevo');
-
-Route::group(['prefix'=>'/personal'], function () {
-    Route::get('/nuevo', function(){
-    	return "hola";
-    });
-});     
-
+Route::get('/nuevo_personal', 'PersonalController@nuevo');
+Route::get('/nuevo_usuario', 'UsuariosController@nuevo');

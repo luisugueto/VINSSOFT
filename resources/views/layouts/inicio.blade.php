@@ -88,7 +88,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ URL::to('/logout') }}">
+                    <a href="/logout">
                         <i class="fa fa-power-off fa-fw"></i>&nbsp; Salir
                     </a>
                 </li>

@@ -162,6 +162,13 @@
                                 <i class="fa fa-user"></i>
                                 Iniciar Sesión
                             </legend>
+                        @if(Session::has('message-error'))
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                {{Session::get('message-error')}}
+                            </div>
+                        @endif
                         <form action="{{ route('login.store') }}" method="POST">
                             <input type="hidden" name="_token" value="{{ CSRF_TOKEN() }}">
                             <div class="form-horizontal">
