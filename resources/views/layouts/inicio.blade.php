@@ -88,7 +88,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('app.index') }}">
+                    <a href="{{ URL::to('/logout') }}">
                         <i class="fa fa-power-off fa-fw"></i>&nbsp; Salir
                     </a>
                 </li>
@@ -104,7 +104,7 @@
                     </ol>
                     <div class="panel panel-default">
                       <div class="panel-heading">
-                        Bienvenido, X. Tienes <span class="badge">4 tareas</span> y <span class="badge">4 mensajes</span> pendientes.
+                        Bienvenido,  {{Auth::user()->name}}. Tienes <span class="badge">4 tareas</span> y <span class="badge">4 mensajes</span> pendientes.
                       </div>
                     </div>
                 <!--    <div class="blog-main col-md-12">

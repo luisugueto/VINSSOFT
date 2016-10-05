@@ -162,23 +162,27 @@
                                 <i class="fa fa-user"></i>
                                 Iniciar Sesión
                             </legend>
+                        <form action="{{ route('login.store') }}" method="POST">
+                            <input type="hidden" name="_token" value="{{ CSRF_TOKEN() }}">
                             <div class="form-horizontal">
                                 <div class="form-group col-md-12 col-sm-4">
-                                    <!-- <label for="user" class="control-label col-md-4">Usuario</label> -->
+                                    <!-- <label for="user" class="control-label col-md-4">Correo</label> -->
                                     <div>
-                                        <input type="text" class="form-control" placeholder="Usuario">
+                                        <input type="email" class="form-control" placeholder="Correo" name="email">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12 col-sm-4">
                                     <!-- <label for="user" class="control-label col-md-4">Contraseña</label> -->
                                     <div>
-                                        <input type="password" class="form-control" placeholder="Contraseña">
+                                        <input type="password" class="form-control" placeholder="Contraseña" name="password">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12 col-sm-4 text-center">
-                                    <a ui-sref="inicio" href="{{ route('app.index') }}"><button class="btn btn-primary">Ingresar</button></a>
+                                   <!-- <a ui-sref="inicio" href="{{ route('app.index') }}"><button class="btn btn-primary">Ingresar</button></a> -->
+                                   <input type="submit" class="btn btn-primary" value="Ingresar">
                                 </div>
                             </div>
+                        </form>
                         </div>
                     </div>
                     <div class="col-md-11">

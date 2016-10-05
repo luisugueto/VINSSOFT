@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
+use Session;
+use Redirect;
 use App\Http\Requests;
+use App\Http\Requests\LoginRequest;
+use App\Http\Controllers\Controller;
 
-class AppController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +19,7 @@ class AppController extends Controller
      */
     public function index()
     {
-        return view('layouts.inicio');
+        //
     }
 
     /**
@@ -25,7 +29,7 @@ class AppController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -34,9 +38,25 @@ class AppController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LoginRequest $request)
     {
-        //
+        if(Auth::check())
+        {
+            Session::flash('message-error', 'Usuario ya conectado.');
+            return Redirect::to('/');
+        }
+        if(Auth::attempt(['email' => $request['email'], 'password' => $request['password']]))
+        {
+            return Redirect::to('/app');
+        }
+        Session::flash('message-error', 'Datos incorrectos');
+        return Redirect::to('/');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return Redirect::to('/');
     }
 
     /**
