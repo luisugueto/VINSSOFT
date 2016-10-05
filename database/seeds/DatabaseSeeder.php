@@ -23,6 +23,16 @@ class DatabaseSeeder extends Seeder
             'nombre' => 'Becario',
             'descripcion' => 'asfasf',
         ]);
+        DB::table('personal')->insert([
+            'nombres' => 'Luis',
+            'apellidos' => 'Ugueto',
+            'cargo' => 'Programador',
+            'tipoced' => 'V',
+            'cedula' => '24388425',
+            'correo' => 'blink242@outlook.com',
+            'telefono' => '12412412412',
+
+        ]);
     	DB::table('users')->insert([
             'name' => 'Luis',
             'email' => 'blink242@outlook.com',
