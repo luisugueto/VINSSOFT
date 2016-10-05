@@ -18,6 +18,7 @@ class CreateUsuariosTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->integer('roles_id')->unsigned();
+            $table->integer('id_personal')->unsigned();
             $table->rememberToken();
             $table->timestamps();
 

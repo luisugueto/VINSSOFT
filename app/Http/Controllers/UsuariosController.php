@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\UsuarioRequest;
 use App\User;
 use App\Personal;
 use App\Roles;
 use Session;
+use Response;
 
 class UsuariosController extends Controller
 {
@@ -28,7 +30,8 @@ class UsuariosController extends Controller
 
     public function nuevo(){
         $roles = Roles::lists('nombre', 'id');
-        return view('usuarios.nuevousuario', ['roles'=> $roles]);
+        $personal = Personal::all();
+        return view('usuarios.nuevousuario', compact('roles', 'personal'));
     }
 
     /**
@@ -47,7 +50,7 @@ class UsuariosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsuarioRequest $request)
     {
         return $request->all();
         $user = new User();

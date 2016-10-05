@@ -38,18 +38,24 @@
                                     <div class="form-group">
                                         <label class="control-label col-sm-4">Personal</label>
                                         <div class="input-group col-sm-8">
-                                            <input required class="form-control" type="text" name="personal">
+                                             <select name="personal" required class="form-control select">
+                                                 <option  disabled selected>Seleccione</option>
+                                                 @foreach($personal as $persona)
+                                                    <option value="{{ $persona->id }}">{{ $persona->nombres }} {{ $persona->apellidos}}</option>
+                                                 @endforeach
+                                             </select>
                                         </div>
                                     </div>                                
-                        </div>
+                        </div> 
+                        
                         <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label col-sm-4">Rol</label>
                                         <div class="input-group col-sm-8">
-                                             {{ Form::select('roles_id', $roles) }}
+                                             {{ Form::select('roles_id', $roles, ['class'=>'form-control select']) }}
                                         </div>
                                     </div>                                
-                        </div>                           
+                        </div>                        
                         <div align="center">
                             <div class="form-group">
                                 <input class="btn btn-primary" type="submit" value="Aceptar">
