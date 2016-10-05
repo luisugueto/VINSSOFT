@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\User;
+use App\Personal;
+use App\Roles;
 use Session;
 
 class UsuariosController extends Controller
@@ -25,7 +27,8 @@ class UsuariosController extends Controller
     }
 
     public function nuevo(){
-        return view('usuarios.nuevousuario');
+        $roles = Roles::lists('nombre', 'id');
+        return view('usuarios.nuevousuario', ['roles'=> $roles]);
     }
 
     /**
@@ -46,10 +49,11 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
+        return $request->all();
         $user = new User();
         $user->name = $request['nombre'];
         $user->email = $request['correo'];
-        $user->password = $request['contraseña'];
+        $user->password = bcrypt($request['contraseña']);
         $user->roles_id = 1;
         $user->save();
 

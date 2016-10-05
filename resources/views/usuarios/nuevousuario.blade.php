@@ -42,11 +42,19 @@
                                         </div>
                                     </div>                                
                         </div>
-                            <div align="center">
+                        <div class="col-md-12">
                                     <div class="form-group">
-                                        <input class="btn btn-primary" type="submit" value="Aceptar">
-                                    </div>
+                                        <label class="control-label col-sm-4">Rol</label>
+                                        <div class="input-group col-sm-8">
+                                             {{ Form::select('roles_id', $roles) }}
+                                        </div>
+                                    </div>                                
+                        </div>                           
+                        <div align="center">
+                            <div class="form-group">
+                                <input class="btn btn-primary" type="submit" value="Aceptar">
                             </div>
+                        </div>
                         </form>
                     </div>
 @stop
