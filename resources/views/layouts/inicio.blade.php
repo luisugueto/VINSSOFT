@@ -40,7 +40,7 @@
         <div class="col-md-12 menu">
             <ul>
                 <li class="foto"><img src="images/av.jpg"></li>
-                <li class="nombre">Yamilet Vivas</li>
+                <li class="nombre">{{ Auth::user()->name }}</li>
                 <li class="cargo">Jefa de Departamento</li>
                 <li>
                     <a href="{{ URL::to('/') }}">
