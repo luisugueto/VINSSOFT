@@ -47,6 +47,7 @@
                         <i class="fa fa-home fa-fw"></i>&nbsp; Inicio
                     </a>
                 </li>
+                @if(Auth::user()->roles_id == 1)
                 <li>
                     <a href="{{ route('personal.index') }}">
                         <i class="fa fa-group fa-fw"></i>&nbsp; Personal
@@ -72,6 +73,7 @@
                         <i class="fa fa-clock-o fa-fw"></i>&nbsp; Horarios
                     </a>
                 </li>
+                @else
                 <li>
                     <a href="{{ route('reportes.index') }}">
                         <i class="fa fa-file-pdf-o fa-fw"></i>&nbsp; Reportes
@@ -87,6 +89,7 @@
                         <i class="fa fa-cog fa-fw"></i>&nbsp; Sistema
                     </a>
                 </li>
+                @endif
                 <li>
                     <a href="/logout">
                         <i class="fa fa-power-off fa-fw"></i>&nbsp; Salir
