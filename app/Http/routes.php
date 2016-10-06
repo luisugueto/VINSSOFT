@@ -1,4 +1,5 @@
 <?php
+use App\SUM;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -28,6 +29,15 @@ Route::resource('reportes', 'ReportesController');
 Route::resource('usuarios', 'UsuariosController');
 Route::resource('sistema', 'SistemaController');
 Route::resource('login', 'LoginController');
+Route::resource('sum', 'SumController');
+
+Route::get('/aprobar/{id}', function($id){
+	$sum = SUM::find($id);
+	$sum->estatus = 1;
+	$sum->save();
+	return "listo";
+});
 
 Route::get('/nuevo_personal', 'PersonalController@nuevo');
 Route::get('/nuevo_usuario', 'UsuariosController@nuevo');
+Route::get('/nueva_solicitud_sum', 'SumController@nuevo');

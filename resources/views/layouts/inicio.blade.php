@@ -59,6 +59,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('sum.index') }}">
+                        <i class="fa fa-flag fa-fw"></i>&nbsp; Solicitudes SUM
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('eventos.index') }}">
                         <i class="fa fa-calendar-o fa-fw"></i>&nbsp; Eventos
                     </a>
