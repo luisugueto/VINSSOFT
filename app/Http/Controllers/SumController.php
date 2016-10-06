@@ -56,7 +56,7 @@ class SumController extends Controller
         $sum->responsable = $request['responsable'];
         $sum->save();
 
-        $sum = SUM::all();
+        $sum = SUM::paginate(5);
         return view('SUM.index', compact('sum'));
     }
 
