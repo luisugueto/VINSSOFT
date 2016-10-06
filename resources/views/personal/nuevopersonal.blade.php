@@ -3,6 +3,7 @@
 @section('content')
                     <div class="col-md-12">
 
+
                         <h2 class="titulo">
                             Nuevo Personal
                             <br><small>Ingrese los datos de la persona a registrar.</small>

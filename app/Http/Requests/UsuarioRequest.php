@@ -24,11 +24,11 @@ class UsuarioRequest extends Request
     public function rules()
     {
         return [
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required',
-            'name' => 'required',
-            'roles_id' => 'required',
-            'id_personal' =>'required',
+            'email' => 'required|unique:users',
+            'contraseña' => 'required',
+            'nombre' => 'required',
+            'roles' => 'required',
+            'personal' =>'required|unique:users,id_personal',
         ];
     }
 }

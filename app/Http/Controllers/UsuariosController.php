@@ -29,7 +29,8 @@ class UsuariosController extends Controller
     }
 
     public function nuevo(){
-        $roles = Roles::lists('nombre', 'id');
+        //$roles = Roles::lists('nombre', 'id');
+        $roles = Roles::all();
         $personal = Personal::all();
         return view('usuarios.nuevousuario', compact('roles', 'personal'));
     }
@@ -52,12 +53,13 @@ class UsuariosController extends Controller
      */
     public function store(UsuarioRequest $request)
     {
-        return $request->all();
         $user = new User();
         $user->name = $request['nombre'];
-        $user->email = $request['correo'];
+        $user->email = $request['email'];
         $user->password = bcrypt($request['contraseña']);
-        $user->roles_id = 1;
+        $user->roles_id = $request['roles'];
+        $user->id_personal = $request['personal'];
+        $user->remember_token = Session::token();
         $user->save();
 
         Session::flash('mensaje', 'Usuario Creado Correctamente');

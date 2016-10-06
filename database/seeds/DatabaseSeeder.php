@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'blink242@outlook.com',
             'password' => bcrypt('1234'),
             'roles_id' => '1',
+            'id_personal' => '1',
         ]);
         // $this->call(UsersTableSeeder::class);
     }

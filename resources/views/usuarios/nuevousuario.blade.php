@@ -2,6 +2,8 @@
 
 @section('content')
                     <div class="col-md-12">
+    @include('alerts.request')
+
 
                         <h2 class="titulo">
                             Nuevo Usuario
@@ -22,7 +24,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-sm-4">Correo</label>
                                         <div class="input-group col-sm-8">
-                                            <input required class="form-control" type="text" name="correo">
+                                            <input required class="form-control" type="text" name="email">
                                         </div>
                                     </div>                                
                         </div>
@@ -30,7 +32,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-sm-4">Contraseña</label>
                                         <div class="input-group col-sm-8">
-                                            <input required class="form-control" type="text" name="contraseña">
+                                            <input required class="form-control" type="password" name="contraseña">
                                         </div>
                                     </div>                                
                         </div>
@@ -52,9 +54,14 @@
                                     <div class="form-group">
                                         <label class="control-label col-sm-4">Rol</label>
                                         <div class="input-group col-sm-8">
-                                             {{ Form::select('roles_id', $roles, ['class'=>'form-control select']) }}
+                                             <select name="roles" required class="form-control select">
+                                                 <option  disabled selected>Seleccione</option>
+                                                 @foreach($roles as $rol)
+                                                    <option value="{{ $rol->id }}">{{ $rol->nombre }}</option>
+                                                 @endforeach
+                                             </select>
                                         </div>
-                                    </div>                                
+                                    </div>                                   
                         </div>                        
                         <div align="center">
                             <div class="form-group">
