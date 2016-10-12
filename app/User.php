@@ -24,8 +24,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function rol(){
-        return $this->belongsTo('App\Roles');
+    public function personal()
+    {
+        return $this->belongsTo('App\Personal','id_personal');  
+    }
+
+    public function roles(){
+        return $this->belongsTo('App\Roles', 'roles_id');
     }
 
     public function setPasswordAttribute($valor){

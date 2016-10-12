@@ -38,6 +38,7 @@
                                         <td>Nombre</td>
                                         <td>Usuario</td>
                                         <td>Personal</td>
+                                        <td>Rol</td>
                                         <td>Acción</td>
                                     </tr>
                                 </thead>
@@ -46,29 +47,16 @@
                                     <tr>
                                         <td>{{$usuario->name}}</td>
                                         <td>{{$usuario->email}}</td>
-                                        <td>{{$usuario->roles_id}}</td>
+                                        <td>{{$usuario->personal->nombres}} {{$usuario->personal->apellidos}}</td>
+                                        <td>{{$usuario->roles->nombre }}</td>
                                         <td>X</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
-                            <nav>
+                             <nav>
                               <ul class="pagination">
-                                <li>
-                                  <a href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                  </a>
-                                </li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li>
-                                  <a href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                  </a>
-                                </li>
+                                <li>{{ $user->links() }}
                               </ul>
                             </nav>
                         </div>
