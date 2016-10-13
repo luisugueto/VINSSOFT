@@ -23,7 +23,7 @@ class SumController extends Controller
     }
 
     public function nuevo(){
-        return view('SUM.nuevo'); 
+        return view('SUM.nueva'); 
     }
 
     /**
