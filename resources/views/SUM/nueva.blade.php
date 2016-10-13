@@ -1,25 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-        <meta charset="utf-8">
-        <title>Calendario</title>
-        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/calendar.css">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <script type="text/javascript" src="js/es-ES.js"></script>
-        <script src="js/jquery.min.js"></script>
-        <script src="js/moment.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/bootstrap-datetimepicker.js"></script>
-        <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
-       <script src="js/bootstrap-datetimepicker.es.js"></script>
-    </head>
+@extends('layouts.inicio')
 
-</head>
-<body style="background: white;">
-
-        <div class="container">
-
+@section('content')
                 <div class="row">
                         <div class="page-header"><h2></h2></div>
                                 <div class="pull-left form-inline"><br>
@@ -43,7 +24,7 @@
                 </div><hr>
 
                 <div class="row">
-                        <div id="calendar"></div> <!-- Aqui se mostrara nuestro calendario -->
+                        <div style="color:black" id="calendar"></div> <!-- Aqui se mostrara nuestro calendario -->
                         <br><br>
                 </div>
 
@@ -238,6 +219,5 @@
     </div>
   </div>
 </div>
-</div>
-</body>
-</html>
+                    </div>
+@stop
